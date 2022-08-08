@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import AddPage from './Components/Containers/AddPage';
+import Box from '@mui/material/Box';
+import store  from './store'
+import { Provider } from 'react-redux'
+import React from 'react';
+import Dial from './Components/Containers/Dial';
+import TopBar from './Components/Containers/TopBar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Provider store={store}>
+    <React.Fragment>
+      <TopBar />
+      <Box 
+          display="flex" 
+          alignItems="center"
+          justifyContent="center"
+          mt={2}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <AddPage />
+      </Box>
+      <Dial />
+    </React.Fragment>
+    </Provider>
   );
 }
 
